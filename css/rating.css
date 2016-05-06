@@ -1,0 +1,27 @@
+
+#rating {
+  margin-top: 20px;
+  margin-left: 200px;
+  margin-right: 200px;
+  border-radius: 30px;
+  background-color: rgba(55, 55, 56, 0.32);
+  text-align: center;
+  -webkit-perspective: 250px;
+          perspective: 250px;
+  top: 40%;
+}
+
+#rating span {
+  cursor: pointer;
+  font-size: 30px;
+  padding: 0 10px;
+  color: #fff;
+  opacity: .5;
+  -webkit-transition: all 150ms;
+  transition: all 150ms;
+  display: inline-block;
+  -webkit-transform: rotateX(45deg);
+          transform: rotateX(45deg);
+  -webkit-transform-origin: center bottom;
+          transform-origin: center bottom;
+}

@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>CUHK Toilet Finder</title>
+
+	<link rel="shortcut icon" href="https://static.xx.fbcdn.net/rsrc.php/yl/r/H3nktOa7ZMg.ico">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.js"></script>
+	<script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false"></script>
+	<script src="javascript/bootstrap.js"></script>
+	<script src="javascript/star.js"></script>
+
+	<link rel="stylesheet" type="text/css" href="css/bootstrap.css">
+	<link rel="stylesheet" type="text/css" href="css/style.css">
+	<link rel="stylesheet" type="text/css" href="css/rating.css">
+
+
+
+</head>
+<body>
+	<div id="header">
+		<div>
+			<a href="index_u.html" id="logo"><img src="images/logo.png" alt="logo" ></a>
+			<ul>
+				<li>
+					<a href="index_u.html">Home  <span class="glyphicon glyphicon-search" aria-hidden="true"></span></a>
+				</li>
+				<li class="selected">
+					<a href="toilet_u.html">Toilet  <span class="glyphicon glyphicon-ok" aria-hidden="true"></span></a>
+				</li>
+				<li>
+					<a href="lndex.html">Logout <span class="glyphicon glyphicon-log-in" aria-hidden="true"></span></a>
+				</li>
+			</ul>
+		</div>
+	</div>
+	<div id="identify">
+		<button class="btn btn-info" type="button" id="personbutton" ><%= name %><span class="badge"><span class="glyphicon glyphicon-user" aria-hidden="true"></span></span></button>
+		<script type="text/javascript">
+		document.getElementById("personbutton").onclick = function () {
+			location.href = "person.html";
+		};
+		</script>
+	</div>
+	<div id="search">
+		<div class="jumbotron">
+			<h2 align="center"><span class="glyphicon glyphicon-send" aria-hidden="true"></span>  CUHK Toilet</h2>
+			<div id="search-bar">
+			    <div class="input-group">
+			    	<input type="text" class="form-control" placeholder="Toilet Searching...">
+			    	<span class="input-group-btn">
+			    		<button class="btn btn-default" type="button">
+			    			<span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+			    		</button>
+			    	</span>
+			    </div><!-- /input-group -->
+			</div>
+		</div>
+	</div>
+
+	<div id="body" class="home">
+		<div>
+			<div class="jumbotron">
+				<img id="itemphoto"src="<%= place_image %>">
+				<h4 style = "text-align: center; text-indent:0px;"><%= place_name %></h4>
+				<p class="description">
+					<%= place_description %>
+				</p>
+				<div style="text-align: center;">
+					<button class="btn btn-warning" class="locatelabel" type="button" >Rating <span class="badge"><span class="glyphicon glyphicon-star" aria-hidden="true"></span></span></button>
+				</div>
+				<div id="rating">
+					<span>★</span>
+					<span>★</span>
+					<span>★</span>
+					<span>★</span>
+					<span>★</span>
+						<% for(var i=1; i<=temp; i++) {%>
+							<style>
+								#rating span:nth-child(<%= i %>)
+								{
+									color: #ff0;
+								 	opacity: 1;
+									-webkit-transform: rotateX(0deg);
+								          transform: rotateX(0deg);
+									text-shadow: 0 0 30px #ffc;
+								}
+							</style>
+
+						<% } %>
+				</div>
+				<div class="comment">
+					<div class="photoframe">
+						<img src="<%= commenticon1 %>">
+					</div>
+					<div class="comment-content">
+						<span class="label label-info"><%= commenter1 %></span>
+						<span class="label label-default"><%= commentnum1 %></span>
+						<p><%= comment1 %></p>
+					</div>
+				</div>
+				<div class="comment">
+					<div class="photoframe">
+						<img src="<%= commenticon2 %>">
+					</div>
+					<div class="comment-content">
+						<span class="label label-info"><%= commenter2 %></span>
+						<span class="label label-default"><%= commentnum2 %></span>
+						<p><%= comment2 %></p>
+					</div>
+				</div>
+				<div class="comment">
+					<div class="photoframe">
+						<img src="<%= commenticon3 %>">
+					</div>
+					<div class="comment-content">
+						<span class="label label-info"><%= commenter3 %></span>
+						<span class="label label-default"><%= commentnum3 %></span>
+						<p><%= comment3 %></p>
+					</div>
+				</div>
+				<div class="comment">
+					<div class="photoframe">
+						<img id="selficon"src="<%= commenticon3 %>">
+					</div>
+					<div class="comment-content">
+						<div class="input-group">
+							<input id="commentinput" type="text" class="form-control" placeholder="Comment" aria-describedby="basic-addon1">
+						</div>
+						<div class="dropdown" style="margin-top:15px;">
+							<button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+								Rate
+								<span class="caret"></span>
+							</button>
+							<ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+								<li><a href="#">5</a></li>
+								<li><a href="#">4</a></li>
+								<li><a href="#">3</a></li>
+								<li><a href="#">2</a></li>
+								<li><a href="#">1</a></li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

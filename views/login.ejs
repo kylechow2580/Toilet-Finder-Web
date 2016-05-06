@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Toilet Finder(CUHK)</title>
+	<link rel="shortcut icon" href="https://static.xx.fbcdn.net/rsrc.php/yl/r/H3nktOa7ZMg.ico">
+	<link rel="stylesheet" href="css/style.css" type="text/css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.js"></script>
+	<script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false"></script>
+	<script src="javascript/bootstrap.js"></script>
+	<script src="javascript/star.js"></script>
+
+
+	<link rel="stylesheet" type="text/css" href="css/bootstrap.css">
+	<link rel="stylesheet" type="text/css" href="css/style.css">
+	<link rel="stylesheet" type="text/css" href="css/imageframe.css">
+	<link rel="stylesheet" type="text/css" href="css/toilet-roll.css">
+	<link rel="stylesheet" type="text/css" href="css/star.css">
+</head>
+<body>
+	<div id="header">
+		<div>
+			<a href="index.html" id="logo"><img src="images/logo.png" alt="logo" ></a>
+			<ul>
+				<li>
+					<a href="index.html">Home  <span class="glyphicon glyphicon-search" aria-hidden="true"></span></a>
+				</li>
+				<li>
+					<a href="toilet.html">Toilet  <span class="glyphicon glyphicon-ok" aria-hidden="true"></span></a>
+				</li>
+				<li class="selected">
+					<a href="login.html">Login  <span class="glyphicon glyphicon-log-in" aria-hidden="true"></span></a>
+				</li>
+			</ul>
+		</div>
+	</div>
+	</div>
+	<div id="body" class="home">
+		<div class="wrapmodule">
+			<div class="container">
+				<h1>Login</h1>
+				<form class="form" action="/login.html" method="post">
+					<input type="text" name="ac" placeholder="Username"/>
+					<input type="password" name="pw" placeholder="Password">
+					<button type="submit" id="login-button" value="Submit">Login</button>
+				</form>
+			</div>
+			<ul class="bg-bubbles">
+				<li></li>
+				<li></li>
+				<li></li>
+				<li></li>
+				<li></li>
+				<li></li>
+				<li></li>
+				<li></li>
+				<li></li>
+				<li></li>
+			</ul>
+		</div>
+
+		<div class="about">
+			<div class="divsion">
+				<div id="blog-left">
+					<div class="wrapper">
+						<div class="toiletroll">
+							<div class="roll"></div>
+							<div class="papers">
+								<div class="paper">CUHK</div>
+								<div class="paper">Finder</div>
+								<div class="paper">Toilet</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div id="blog-right">
+						<br \>
+						<br \>
+						<br \>
+						<br \>
+						<br \>
+						<br \>
+						<h2> &nbsp&nbsp&nbspProject Toilet Finder</h2>
+				</div>
+			</div>
+			<div class="divsion">
+				<div id="blog2-left">
+					<div>
+						<br \>
+						<br \>
+						<br \>
+						<br \>
+						<br \>
+						<br \>
+						<br \>
+						<h2 style="text-align:right;">Venue: CUHK &nbsp&nbsp&nbsp&nbsp&nbsp</h2>
+					</div>
+				</div>
+				<div id = "blog2-right">
+					<figure>
+						<img src="http://maps.googleapis.com/maps/api/staticmap?center=cuhk&amp;zoom=16&amp;size=400x400&amp;sensor=false&amp;scale=10&amp;visual_refresh=true" alt="" />
+					</figure>
+				</div>
+			</div>
+			<div class="divsion">
+				<div id="blog3-left">
+					<canvas id='c'></canvas>
+				</div>
+				<div id="blog3-right">
+					<br \>
+					<br \>
+					<br \>
+					<br \>
+					<br \>
+					<br \>
+					<br \>
+					<h2>Ranking System</h2>
+				</div>
+			</div>
+		</div>
+
+	</div>
+	<script>
+		if(<%= errornum %> == 1)
+		{
+			alert("Failed to login!");
+		}
+	</script>
+</body>
+</html>

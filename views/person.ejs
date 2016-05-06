@@ -20,35 +20,44 @@
 <body>
 	<div id="header">
 		<div>
-			<a href="index.html" id="logo"><img src="images/logo.png" alt="logo" ></a>
+			<a href="index_u" id="logo"><img src="images/logo.png" alt="logo" ></a>
 			<ul>
 				<li>
-					<a href="index.html">Home  <span class="glyphicon glyphicon-search" aria-hidden="true"></span></a>
+					<a href="index_u">Home  <span class="glyphicon glyphicon-search" aria-hidden="true"></span></a>
 				</li>
 				<li>
-					<a href="toilet.html">Toilet  <span class="glyphicon glyphicon-ok" aria-hidden="true"></span></a>
+					<a href="toilet_u">Toilet  <span class="glyphicon glyphicon-ok" aria-hidden="true"></span></a>
 				</li>
 				<li class="selected">
-					<a href="lndex.html">Logout  <span class="glyphicon glyphicon-log-in" aria-hidden="true"></span></a>
+					<a href="index">Logout  <span class="glyphicon glyphicon-log-in" aria-hidden="true"></span></a>
 				</li>
 			</ul>
 		</div>
 	</div>
+
+	<!-- Click To Show Personal Profile -->
 	<div id="identify">
 		<button class="btn btn-info" type="button" id="personbutton" ><%= name %><span class="badge"><span class="glyphicon glyphicon-user" aria-hidden="true"></span></span></button>
 		<script type="text/javascript">
 		document.getElementById("personbutton").onclick = function () {
-			location.href = "person.html";
+			location.href = "person";
 		};
 		</script>
 	</div>
+	<!-- Click To Show Personal Profile -->
+
+
 	<div id="body" class="home">
 		<div class="wrapmodule">
+			<!-- Show Member Photo -->
 			<div id="left-hand-side">
 				<div class="photoframe">
 				  <img src="<%= icon %>" alt="...">
 			 	</div>
 			</div>
+			<!-- Show Member Photo -->
+
+			<!-- Show Member Profile -->
 			<div id="right-hand-side">
 				<ul class="list-group">
 					<li class="list-group-item list-group-item-warning">ID: <label for="basic-url"><%= id %></label></li>
@@ -70,7 +79,10 @@
 					<button type="button" class="btn btn-danger" aria-haspopup="true" aria-expanded="false">Logout </button>
 				</ul>
 			</div>
+			<!-- Show Member Profile -->
 		</div>
+
+		<!-- For Decoration -->
 		<div class="about">
 			<div class="divsion">
 				<div id="blog-left">
@@ -130,6 +142,7 @@
 				</div>
 			</div>
 		</div>
+		<!-- For Decoration -->
 	</div>
 
 </body>

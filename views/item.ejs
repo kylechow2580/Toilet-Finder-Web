@@ -20,25 +20,27 @@
 <body>
 	<div id="header">
 		<div>
-			<a href="index.html" id="logo"><img src="images/logo.png" alt="logo" ></a>
+			<a href="index" id="logo"><img src="images/logo.png" alt="logo" ></a>
 			<ul>
 				<li>
-					<a href="index.html">Home  <span class="glyphicon glyphicon-search" aria-hidden="true"></span></a>
+					<a href="index">Home  <span class="glyphicon glyphicon-search" aria-hidden="true"></span></a>
 				</li>
 				<li class="selected">
-					<a href="toilet.html">Toilet  <span class="glyphicon glyphicon-ok" aria-hidden="true"></span></a>
+					<a href="toilet">Toilet  <span class="glyphicon glyphicon-ok" aria-hidden="true"></span></a>
 				</li>
 				<li>
-					<a href="login.html">Login  <span class="glyphicon glyphicon-log-in" aria-hidden="true"></span></a>
+					<a href="login">Login  <span class="glyphicon glyphicon-log-in" aria-hidden="true"></span></a>
 				</li>
 			</ul>
 		</div>
 	</div>
-	<script src="javascript/location.js"></script>
+
+	<!-- Search Bar -->
 	<div id="search">
-		<form name = "search_a" action="/toilet.html" method="post">
+		<form name = "search_a" action="/toilet" method="post">
 		<div class="jumbotron">
 			<h2 align="center"><span class="glyphicon glyphicon-send" aria-hidden="true"></span>  CUHK Toilet</h2>
+			<!-- /input-group -->
 			<div id="search-bar">
 			    <div class="input-group">
 			    	<input type="text" class="form-control" name = "word" placeholder="Finding Toilet . . .">
@@ -47,20 +49,26 @@
 			    			<span class="glyphicon glyphicon-search" aria-hidden="true"></span>
 			    		</button>
 			    	</span>
-			    </div><!-- /input-group -->
+			    </div>
+			<!-- /input-group -->
 			</div>
 		</div>
 	</form>
 	</div>
+	<!-- Search Bar -->
 
 	<div id="body" class="home">
 		<div>
 			<div class="jumbotron">
+				<!-- Show detail of toilet -->
 				<img id="itemphoto"src="<%= place_image %>">
 				<h4 style = "text-align: center; text-indent:0px;"><%= place_name %></h4>
 				<p class="description">
 					<%= place_description %>
 				</p>
+				<!-- Show detail of toilet -->
+
+				<!-- Rating -->
 				<div style="text-align: center;">
 					<button class="btn btn-warning" class="locatelabel" type="button" >Rating <span class="badge"><span class="glyphicon glyphicon-star" aria-hidden="true"></span></span></button>
 				</div>
@@ -84,6 +92,9 @@
 
 						<% } %>
 				</div>
+				<!-- Rating -->
+
+				<!-- Comment 1 -->
 				<div class="comment">
 					<div class="photoframe">
 						<img src="<%= commenticon1 %>">
@@ -94,6 +105,9 @@
 						<p><%= comment1 %></p>
 					</div>
 				</div>
+				<!-- Comment 1 -->
+
+				<!-- Comment 2 -->
 				<div class="comment">
 					<div class="photoframe">
 						<img src="<%= commenticon2 %>">
@@ -104,6 +118,9 @@
 						<p><%= comment2 %></p>
 					</div>
 				</div>
+				<!-- Comment 2 -->
+
+				<!-- Comment 3 -->
 				<div class="comment">
 					<div class="photoframe">
 						<img src="<%= commenticon3 %>">
@@ -114,6 +131,9 @@
 						<p><%= comment3 %></p>
 					</div>
 				</div>
+				<!-- Comment 3 -->
+
+				<!-- For Write Comment -->
 				<div class="comment">
 					<div class="photoframe">
 						<img id="selficon"src="<%= commenticon3 %>">
@@ -137,6 +157,7 @@
 						</div>
 					</div>
 				</div>
+				<!-- For Write Comment -->
 			</div>
 		</div>
 	</div>

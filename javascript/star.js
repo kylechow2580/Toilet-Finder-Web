@@ -1,3 +1,4 @@
+// To init the basic setting of stars
 function init()
 {
   var c = document.getElementById("c");
@@ -60,6 +61,7 @@ function init()
 
   ctx.translate(cw / 2, ch / 2);
 
+  // To Show The Stars
   function Draw() {
     requestId = window.requestAnimationFrame(Draw);
     ctx.rotate((360 / (speed - 1)) * rad);
@@ -104,7 +106,7 @@ function init()
         o.y = ((b.y - a.y) * i / n) + a.y
       ry.push(o);
     }
-  }  
+  }
 }
 
 document.addEventListener("DOMContentLoaded", init, false);

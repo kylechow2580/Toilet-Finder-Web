@@ -15,24 +15,27 @@
 <body>
 	<div id="header">
 		<div>
-			<a href="index.html" id="logo"><img src="images/logo.png" alt="logo" ></a>
+			<a href="index" id="logo"><img src="images/logo.png" alt="logo" ></a>
 			<ul>
 				<li class="selected">
-					<a href="index.html">Home  <span class="glyphicon glyphicon-search" aria-hidden="true"></span></a>
+					<a href="index">Home  <span class="glyphicon glyphicon-search" aria-hidden="true"></span></a>
 				</li>
 				<li>
-					<a href="toilet.html">Toilet  <span class="glyphicon glyphicon-ok" aria-hidden="true"></span></a>
+					<a href="toilet">Toilet  <span class="glyphicon glyphicon-ok" aria-hidden="true"></span></a>
 				</li>
 				<li>
-					<a href="login.html">Login  <span class="glyphicon glyphicon-log-in" aria-hidden="true"></span></a>
+					<a href="login">Login  <span class="glyphicon glyphicon-log-in" aria-hidden="true"></span></a>
 				</li>
 			</ul>
 		</div>
 	</div>
+
+	<!-- Search Bar -->
 	<div id="search">
-		<form name = "search_a" action="/toilet.html" method="post">
+		<form name = "search_a" action="/toilet" method="post">
 		<div class="jumbotron">
 			<h2 align="center"><span class="glyphicon glyphicon-send" aria-hidden="true"></span>  CUHK Toilet</h2>
+			<!-- /input-group -->
 			<div id="search-bar">
 			    <div class="input-group">
 			    	<input type="text" class="form-control" name = "word" placeholder="Finding Toilet . . .">
@@ -41,16 +44,18 @@
 			    			<span class="glyphicon glyphicon-search" aria-hidden="true"></span>
 			    		</button>
 			    	</span>
-			    </div><!-- /input-group -->
+			    </div>
+			<!-- /input-group -->
 			</div>
 		</div>
 	</form>
 	</div>
+	<!-- Search Bar -->
 
 	<div id="body" class="home">
 		<div class="container">
   		<!-- block1 -->
-			<a href="item.html?link=<%= ID1 %>">
+			<a href="item?link=<%= ID1 %>">
 			<div class="block image" style="background-image: <%= image1 %>;">
 				<div class="layer"></div>
 				<div class="p-container">
@@ -63,7 +68,7 @@
 		<!-- block1 -->
 
 		<!-- block2 -->
-		<a href="item.html?link=<%= ID2 %>">
+		<a href="item?link=<%= ID2 %>">
 			<div class="block image2" style="background-image: <%= image2 %>;">
 				<div class="layer"></div>
 				<div class="p-container">
@@ -76,7 +81,7 @@
 		<!-- block2 -->
 
 		<!-- block3 -->
-		<a href="item.html?link=<%= ID3 %>">
+		<a href="item?link=<%= ID3 %>">
 			<div class="block image3" style="background-image: <%= image3 %>;" >
 				<div class="layer"></div>
 				<div class="p-container">
@@ -89,7 +94,7 @@
 		<!-- block3 -->
 
 		<!-- block4 -->
-		<a href="item.html?link=<%= ID4 %>">
+		<a href="item?link=<%= ID4 %>">
 			<div class="block image4" style="background-image: <%= image4 %>;">
 				<div class="layer"></div>
 				<div class="p-container">
@@ -102,7 +107,7 @@
 		<!-- block4 -->
 
 		<!-- block5 -->
-		<a href="item.html?link=<%= ID5 %>">
+		<a href="item?link=<%= ID5 %>">
 		<div class="block image5" style="background-image: <%= image5 %>;">
 				<div class="layer"></div>
 				<div class="p-container">
@@ -114,19 +119,19 @@
 		</div>
 	</a>
 		<!-- block5 -->
-		<!-- container -->
+
+		<!-- container to show current location -->
 		<div id="location">
 			<br />
 			<br />
 			<div id="mapholder"></div>
 			<script src="http://maps.google.com/maps/api/js?sensor=false"></script>
-			<script src="javascript/googlemap.js"></script>
 			<script src="javascript/location.js"></script>
 		</div>
 		<div id="label">
-			<button class="btn btn-primary" id="locatelabel" type="button">Fail to get your loaction</button>
+			<button class="btn btn-primary" id="locatelabel" type="button" onclick="clickButton();">Get current location</button>
 		</div>
-
+		<!-- container to show current location -->
 
 
 		<div class="extend">

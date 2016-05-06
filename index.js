@@ -1,19 +1,20 @@
+//Set up all required module and function
 var express   =    require("express");
 var bodyParser = require('body-parser');
 var mysql     =    require('mysql');
 var app       =    express();
 var server = require('http').createServer(app);
 var http = require("http");
-var __dirname = "/Users/lizalam/Desktop/3100";
-
+var __dirname = "/Users/Kyle/Desktop/test";
 app.set('view engine', 'ejs');
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
 
-
+//Declare variable needed in template engine
 var global,itemuse,itemimage, top, find, key,tmp,logined;
-logined = 0;
 var star, username, com;
+
+//Connect to the db
 var connection = mysql.createConnection({
     "host": "localhost",
     "port": 3306,
@@ -22,6 +23,7 @@ var connection = mysql.createConnection({
     "database": "3100"
 });
 
+//All sql statement we needed
 var sql = "SELECT * FROM toilets";
 connection.query(sql, function(error, results) {
 		if (error) {
@@ -37,6 +39,7 @@ connection.query(sql, function(error, results) {
 		top = results;
 });
 
+//load all the statics files
 app.use('/css', express.static('css'));
 app.get('/javascript/star.js', function(req, res){
     res.sendFile(__dirname + '/javascript/star.js');
@@ -87,6 +90,8 @@ function onRequest(req, res) {
     var pathname = url.parse(req.url).pathname;
     console.log("Request for " + pathname + " received.");
 }
+
+//Doing rounting of every url
 app.get("/index.html", function(req, res, next) {
     res.render( 'index', {
         image1 : 'url(' + top[0].image + ')',
@@ -189,7 +194,6 @@ app.get("/toilet_u.html", function(req, res, next) {
         place12_name : 'MMW ENG BUILD12'
     });
 });
-
 app.get("/toilet.html", function(req, res, next) {
     console.log("GET GET GET received: " + req.param['word']);
     key = req.param['word'];
@@ -261,86 +265,7 @@ app.get("/toilet.html", function(req, res, next) {
     });
 });
 
-app.post("/toilet.html", function(req, res,next) {
-    console.log("received: " + req.body.word);
-    key = req.body.word;
-    if (/[^a-zA-Z]/.test(key)) {
-        var lat = parseFloat(key.substr(0,key.indexOf(' ')-1));
-        var lng = parseFloat(key.substr(key.indexOf(' ')));
-        var sql = "SELECT * from toilets WHERE abs(x(location) - " + [lat] + ") <= 0.0006 AND abs(y(location) - " + [lng] + ") <= 0.0006";
-    } else {
-        var sql = "SELECT * FROM toilets WHERE name LIKE \"%" + [key] + "%\"";
-    }
-		connection.query(sql, function(error, results) {
-				if (error) {
-						return console.error(error);
-				} else {
-            find = results;
-            console.log(find);
-        }
-		});
-    console.log("toilets find: " + find.length);
-    if (find.length < 12){
-        for (var i = find.length ; i < 12; i++){
-            find[i] = "";
-        }
-    }
 
-    //add for loop to store link value to tmp
-    res.render( 'toilet', {
-        item1_name : find[0].name || " ",
-        item2_name : find[1].name || " ",
-        item3_name : find[2].name || " ",
-        item4_name : find[3].name || " ",
-        item5_name : find[4].name || " ",
-        item6_name : find[5].name || " ",
-        item7_name : find[6].name || " ",
-        item8_name : find[7].name || " ",
-        item9_name : find[8].name || " ",
-        item10_name : find[9].name || " ",
-        item11_name : find[10].name || " ",
-        item12_name : find[11].name || " ",
-
-        place1_name : 'MMW ENG BUILD pp',
-        place2_name : 'MMW ENG BUILD2 pp',
-        place3_name : 'MMW ENG BUILD3 pp',
-        place4_name : 'MMW ENG BUILD4 pp',
-        place5_name : 'MMW ENG BUILD5 pp',
-        place6_name : 'MMW ENG BUILD6 pp',
-        place7_name : 'MMW ENG BUILD7 pp',
-        place8_name : 'MMW ENG BUILD8 pp',
-        place9_name : 'MMW ENG BUILD9 pp',
-        place10_name : 'MMW ENG BUILD10',
-        place11_name : 'MMW ENG BUILD11',
-        place12_name : 'MMW ENG BUILD12',
-
-        item0_img : find[0].image || " ",
-        item1_img : find[1].image || " ",
-        item2_img : find[2].image || " ",
-        item3_img : find[3].image || " ",
-        item4_img : find[4].image || " ",
-        item5_img : find[5].image || " ",
-        item6_img : find[6].image || " ",
-        item7_img : find[7].image || " ",
-        item8_img : find[8].image || " ",
-        item9_img : find[9].image || " ",
-        item10_img : find[10].image || " ",
-        item11_img : find[11].image || " ",
-
-        link1 : find[0].TID,
-        link2 : find[1].TID,
-        link3 : find[2].TID,
-        link4 : find[3].TID,
-        link5 : find[4].TID,
-        link6 : find[5].TID,
-        link7 : find[6].TID,
-        link8 : find[7].TID,
-        link9 : find[8].TID,
-        link10 : find[9].TID,
-        link11 : find[10].TID,
-        link12 : find[11].TID
-    });
-});
 
 app.get("/item.html", function(req, res, next) {
     var item_num = req.param('link');
@@ -457,6 +382,8 @@ app.get("/item_u.html", function(req, res, next) {
     });
 });
 
+
+//Handle every post request
 app.post("/item.html", function(req, res, next) {
     var item_num = req.param('link');
     var sql = "SELECT AVG(star) as a FROM comments where TID =" + item_num;
@@ -543,6 +470,85 @@ app.post("/login.html", function(request, response){
 
 });
 
+app.post("/toilet.html", function(req, res,next) {
+    console.log("received: " + req.body.word);
+    key = req.body.word;
+    if (/[^a-zA-Z]/.test(key)) {
+        var lat = parseFloat(key.substr(0,key.indexOf(' ')-1));
+        var lng = parseFloat(key.substr(key.indexOf(' ')));
+        var sql = "SELECT * from toilets WHERE abs(x(location) - " + [lat] + ") <= 0.0006 AND abs(y(location) - " + [lng] + ") <= 0.0006";
+    } else {
+        var sql = "SELECT * FROM toilets WHERE name LIKE \"%" + [key] + "%\"";
+    }
+        connection.query(sql, function(error, results) {
+                if (error) {
+                        return console.error(error);
+                } else {
+            find = results;
+            console.log(find);
+        }
+        });
+    console.log("toilets find: " + find.length);
+    if (find.length < 12){
+        for (var i = find.length ; i < 12; i++){
+            find[i] = "";
+        }
+    }
 
+    //add for loop to store link value to tmp
+    res.render( 'toilet', {
+        item1_name : find[0].name || " ",
+        item2_name : find[1].name || " ",
+        item3_name : find[2].name || " ",
+        item4_name : find[3].name || " ",
+        item5_name : find[4].name || " ",
+        item6_name : find[5].name || " ",
+        item7_name : find[6].name || " ",
+        item8_name : find[7].name || " ",
+        item9_name : find[8].name || " ",
+        item10_name : find[9].name || " ",
+        item11_name : find[10].name || " ",
+        item12_name : find[11].name || " ",
+
+        place1_name : 'MMW ENG BUILD pp',
+        place2_name : 'MMW ENG BUILD2 pp',
+        place3_name : 'MMW ENG BUILD3 pp',
+        place4_name : 'MMW ENG BUILD4 pp',
+        place5_name : 'MMW ENG BUILD5 pp',
+        place6_name : 'MMW ENG BUILD6 pp',
+        place7_name : 'MMW ENG BUILD7 pp',
+        place8_name : 'MMW ENG BUILD8 pp',
+        place9_name : 'MMW ENG BUILD9 pp',
+        place10_name : 'MMW ENG BUILD10',
+        place11_name : 'MMW ENG BUILD11',
+        place12_name : 'MMW ENG BUILD12',
+
+        item0_img : find[0].image || " ",
+        item1_img : find[1].image || " ",
+        item2_img : find[2].image || " ",
+        item3_img : find[3].image || " ",
+        item4_img : find[4].image || " ",
+        item5_img : find[5].image || " ",
+        item6_img : find[6].image || " ",
+        item7_img : find[7].image || " ",
+        item8_img : find[8].image || " ",
+        item9_img : find[9].image || " ",
+        item10_img : find[10].image || " ",
+        item11_img : find[11].image || " ",
+
+        link1 : find[0].TID,
+        link2 : find[1].TID,
+        link3 : find[2].TID,
+        link4 : find[3].TID,
+        link5 : find[4].TID,
+        link6 : find[5].TID,
+        link7 : find[6].TID,
+        link8 : find[7].TID,
+        link9 : find[8].TID,
+        link10 : find[9].TID,
+        link11 : find[10].TID,
+        link12 : find[11].TID
+    });
+});
 
 http.createServer(app).listen(8000);

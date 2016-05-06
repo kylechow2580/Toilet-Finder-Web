@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Toilet Finder(CUHK)</title>
+	<link rel="shortcut icon" href="https://static.xx.fbcdn.net/rsrc.php/yl/r/H3nktOa7ZMg.ico">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.js"></script>
+	<script src="javascript/bootstrap.js"></script>
+
+
+	<link rel="stylesheet" type="text/css" href="css/bootstrap.css">
+	<link rel="stylesheet" type="text/css" href="css/style.css">
+	<link rel="stylesheet" type="text/css" href="css/imageframe.css">
+</head>
+<body>
+	<div id="header">
+		<div>
+			<a href="index" id="logo"><img src="images/logo.png" alt="logo" ></a>
+			<ul>
+				<li class="selected">
+					<a href="index_u.html">Home  <span class="glyphicon glyphicon-search" aria-hidden="true"></span></a>
+				</li>
+				<li>
+					<a href="toilet_u.html">Toilet  <span class="glyphicon glyphicon-ok" aria-hidden="true"></span></a>
+				</li>
+				<li>
+					<a href="lndex.html">Logout  <span class="glyphicon glyphicon-log-in" aria-hidden="true"></span></a>
+				</li>
+			</ul>
+		</div>
+	</div>
+	<div id="identify">
+		<button class="btn btn-info" type="button" id="personbutton" ><%= name %><span class="badge"><span class="glyphicon glyphicon-user" aria-hidden="true"></span></span></button>
+		<script type="text/javascript">
+		document.getElementById("personbutton").onclick = function () {
+			location.href = "person.html";
+		};
+		</script>
+	</div>
+
+	<div id="search">
+		<form action="" method="post" enctype="multipart/form-data">
+		<div class="jumbotron">
+			<h2 align="center"><span class="glyphicon glyphicon-send" aria-hidden="true"></span>  CUHK Toilet</h2>
+			<div id="search-bar">
+			    <div class="input-group">
+			    	<input type="text" class="form-control" name = "keyword[find]" placeholder="Finding Toilet . . .">
+			    	<span class="input-group-btn">
+			    		<button class="btn btn-default" type="submit">
+			    			<span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+			    		</button>
+			    	</span>
+			    </div><!-- /input-group -->
+			</div>
+		</div>
+	</form>
+	</div>
+
+	<div id="body" class="home">
+		<div class="container">
+  		<!-- block1 -->
+			<div class="block image" style="background-image: <%= image1 %>;">
+				<div class="layer"></div>
+				<div class="p-container">
+					<p class="img-p">
+						<%= img_p1 %>
+					</p>
+				</div>
+			</div>
+		<!-- block1 -->
+
+		<!-- block2 -->
+			<div class="block image2" style="background-image: <%= image2 %>;">
+				<div class="layer"></div>
+				<div class="p-container">
+					<p class="img-p">
+						<%= img_p2 %>
+					</p>
+				</div>
+			</div>
+		<!-- block2 -->
+
+		<!-- block3 -->
+			<div class="block image3" style="background-image: <%= image3 %>;" >
+				<div class="layer"></div>
+				<div class="p-container">
+					<p class="img-p">
+						<%= img_p3 %>
+					</p>
+				</div>
+			</div>
+		<!-- block3 -->
+
+		<!-- block4 -->
+			<div class="block image4" style="background-image: <%= image4 %>;">
+				<div class="layer"></div>
+				<div class="p-container">
+					<p class="img-p">
+						<%= img_p4 %>
+					</p>
+				</div>
+			</div>
+		<!-- block4 -->
+
+		<!-- block5 -->
+		<div class="block image5" style="background-image: <%= image5 %>;">
+				<div class="layer"></div>
+				<div class="p-container">
+					<p class="img-p">
+						<%= img_p5 %>
+					</p>
+			    </div>
+  			</div>
+		</div>
+		<!-- block5 -->
+		<!-- container -->
+		<div id="location">
+			<br />
+			<br />
+			<div id="mapholder"></div>
+			<script src="http://maps.google.com/maps/api/js?sensor=false"></script>
+			<script src="javascript/googlemap.js"></script>
+			<script src="javascript/location.js"></script>
+		</div>
+		<div id="label">
+			<button class="btn btn-primary" id="locatelabel" type="button">Fail to get your loaction</button>
+		</div>
+
+
+
+		<div class="extend">
+	</div>
+
+	</div>
+
+</body>
+</html>

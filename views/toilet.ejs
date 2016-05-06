@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>CUHK Toilet Finder</title>
+
+	<link rel="shortcut icon" href="https://static.xx.fbcdn.net/rsrc.php/yl/r/H3nktOa7ZMg.ico">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.js"></script>
+	<script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false"></script>
+	<script src="javascript/bootstrap.js"></script>
+	<script src="javascript/star.js"></script>
+
+	<link rel="stylesheet" type="text/css" href="css/bootstrap.css">
+	<link rel="stylesheet" type="text/css" href="css/style.css">
+	<link rel="stylesheet" type="text/css" href="css/toilet-roll.css">
+	<link rel="stylesheet" type="text/css" href="css/star.css">
+
+</head>
+<body>
+	<div id="header">
+		<div>
+			<a href="index.html" id="logo"><img src="images/logo.png" alt="logo" ></a>
+			<ul>
+				<li>
+					<a href="index.html">Home  <span class="glyphicon glyphicon-search" aria-hidden="true"></span></a>
+				</li>
+				<li class="selected">
+					<a href="toilet.html">Toilet  <span class="glyphicon glyphicon-ok" aria-hidden="true"></span></a>
+				</li>
+				<li>
+					<a href="login.html">Login  <span class="glyphicon glyphicon-log-in" aria-hidden="true"></span></a>
+				</li>
+			</ul>
+		</div>
+	</div>
+	<script src="javascript/location.js"></script>
+	<div id="search">
+		<form name = "search_a" action="/toilet.html" method="post">
+		<div class="jumbotron">
+			<h2 align="center"><span class="glyphicon glyphicon-send" aria-hidden="true"></span>  CUHK Toilet</h2>
+			<div id="search-bar">
+			    <div class="input-group">
+			    	<input type="text" class="form-control" name = "word" placeholder="Finding Toilet . . .">
+			    	<span class="input-group-btn">
+			    		<button class="btn btn-default" type="submit">
+			    			<span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+			    		</button>
+			    	</span>
+			    </div><!-- /input-group -->
+			</div>
+		</div>
+	</form>
+	</div>
+
+		<div class="itemlist">
+			<div class="row">
+				<div class="col-xs-6 col-md-3">
+					<div class="thumbnail">
+						<img src="<%= item0_img %>" alt="...">
+						<div class="caption">
+							<h3><%= item1_name %></h3>
+							<p><%= place1_name %></p>
+							<p><a href="item.html?link=<%= link1 %>" class="btn btn-primary" role="button">Details</a>
+						</div>
+					</div>
+				</div>
+				<div class="col-xs-6 col-md-3">
+					<div class="thumbnail">
+						<img src="<%= item1_img %>" alt="...">
+						<div class="caption">
+							<h3><%= item2_name %></h3>
+							<p><%= place2_name %></p>
+							<p><a href="item.html?link=<%= link2 %>" class="btn btn-primary" role="button">Details</a>
+						</div>
+					</div>
+				</div>
+				<div class="col-xs-6 col-md-3">
+					<div class="thumbnail">
+						<img src="<%= item2_img %>" alt="...">
+						<div class="caption">
+							<h3><%= item3_name %></h3>
+							<p><%= place3_name %></p>
+							<p><a href="item.html?link=<%= link3 %>" class="btn btn-primary" role="button">Details</a>
+						</div>
+					</div>
+				</div>
+				<div class="col-xs-6 col-md-3">
+					<div class="thumbnail">
+						<img src="<%= item3_img %>" alt="...">
+						<div class="caption">
+							<h3><%= item4_name %></h3>
+							<p><%= place4_name %></p>
+							<p><a href="item.html?link=<%= link4 %>" class="btn btn-primary" role="button">Details</a>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div class="row">
+				<div class="col-xs-6 col-md-3">
+					<div class="thumbnail">
+						<img src="<%= item4_img %>" alt="...">
+						<div class="caption">
+							<h3><%= item5_name %></h3>
+							<p><%= place5_name %></p>
+							<p><a href="item.html?link=<%= link5 %>" class="btn btn-primary" role="button">Details</a>
+						</div>
+					</div>
+				</div>
+				<div class="col-xs-6 col-md-3">
+					<div class="thumbnail">
+						<img src="<%= item5_img %>" alt="...">
+						<div class="caption">
+							<h3><%= item6_name %></h3>
+							<p><%= place6_name %></p>
+							<p><a href="item.html?link=<%= link6 %>" class="btn btn-primary" role="button">Details</a>
+						</div>
+					</div>
+				</div>
+				<div class="col-xs-6 col-md-3">
+					<div class="thumbnail">
+						<img src="<%= item6_img %>" alt="...">
+						<div class="caption">
+							<h3><%= item7_name %></h3>
+							<p><%= place7_name %></p>
+							<p><a href="item.html?link=<%= link7 %>" class="btn btn-primary" role="button">Details</a>
+						</div>
+					</div>
+				</div>
+				<div class="col-xs-6 col-md-3">
+					<div class="thumbnail">
+						<img src="<%= item7_img %>" alt="...">
+						<div class="caption">
+							<h3><%= item8_name %></h3>
+							<p><%= place8_name %></p>
+							<p><a href="item.html?link=<%= link8 %>" class="btn btn-primary" role="button">Details</a>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div class="row">
+				<div class="col-xs-6 col-md-3">
+					<div class="thumbnail">
+						<img src="<%= item8_img %>" alt="...">
+						<div class="caption">
+							<h3><%= item9_name %></h3>
+							<p><%= place9_name %></p>
+							<p><a href="item.html?link=<%= link9 %>" class="btn btn-primary" role="button">Details</a>
+						</div>
+					</div>
+				</div>
+				<div class="col-xs-6 col-md-3">
+					<div class="thumbnail">
+						<img src="<%= item9_img %>" alt="...">
+						<div class="caption">
+							<h3><%= item10_name %></h3>
+							<p><%= place10_name %></p>
+							<p><a href="item.html?link=<%= link10 %>" class="btn btn-primary" role="button">Details</a>
+						</div>
+					</div>
+				</div>
+				<div class="col-xs-6 col-md-3">
+					<div class="thumbnail">
+						<img src="<%= item10_img %>" alt="...">
+						<div class="caption">
+							<h3><%= item11_name %></h3>
+							<p><%= place11_name %></p>
+							<p><a href="item.html?link=<%= link11 %>" class="btn btn-primary" role="button">Details</a>
+						</div>
+					</div>
+				</div>
+				<div class="col-xs-6 col-md-3">
+					<div class="thumbnail">
+						<img src="<%= item11_img %>" alt="...">
+						<div class="caption">
+							<h3><%= item12_name %></h3>
+							<p><%= place12_name %></p>
+							<p><a href="item.html?link=<%= link12 %>" class="btn btn-primary" role="button">Details</a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+</html>
